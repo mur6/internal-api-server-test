@@ -1,0 +1,14 @@
+apiVersion: skaffold/v2beta4
+kind: Config
+metadata:
+  name: wsgi-server-test
+build:
+  tagPolicy:
+    gitCommit: {}
+  local: {}
+  artifacts:
+    - image: docker.pkg.github.com/mur6/wsgi-server-test/myservice
+deploy:
+  kubectl:
+    manifests:
+      - k8s/myservice.yaml

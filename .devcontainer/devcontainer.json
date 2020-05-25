@@ -1,0 +1,31 @@
+{
+    "name": "k8s dev environment",
+    "context": "..",
+    "dockerFile": "Dockerfile",
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "python.pythonPath": "/usr/local/bin/python",
+        "python.linting.enabled": true,
+        "python.linting.pylintEnabled": false,
+        "python.linting.flake8Enabled": true,
+        "python.linting.flake8Args": [
+            "--ignore=E501"
+        ],
+        "python.formatting.provider": "black",
+        "editor.formatOnSave": true,
+        "python.testing.pytestEnabled": true
+    },
+    "postCreateCommand": "/home/vscode/.poetry/bin/poetry install", // <= ここが上手くいっているか不明（村木）
+    "extensions": [
+        "ms-python.python",
+        "brainfit.vscode-coverage-highlighter",
+        "bungcip.better-toml",
+        "redhat.vscode-yaml"
+    ],
+    "remoteUser": "vscode",
+    "remoteEnv": {
+        "PATH": "${containerEnv:PATH}:/home/vscode/.poetry/bin",
+        "TF_CPP_MIN_LOG_LEVEL": "3",
+        "PYTHONDONTWRITEBYTECODE": "1"
+    }
+}

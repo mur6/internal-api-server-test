@@ -1,0 +1,9 @@
+{
+    "python.pythonPath": "/workspaces/wsgi-server-test/.venv/bin/python3",
+    "python.testing.pytestArgs": [
+        "myservice"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.pytestEnabled": true
+}
