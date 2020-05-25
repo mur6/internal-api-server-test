@@ -9,6 +9,6 @@ build:
   artifacts:
     - image: docker.pkg.github.com/mur6/internal-api-server-test/simpleapi
 deploy:
-  kubectl:
-    manifests:
-      - k8s/myservice.yaml
+  kustomize:
+    paths:
+      - k8s/
