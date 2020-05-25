@@ -12,15 +12,21 @@ def client():
 def test_root_path(client):
     rv = client.get("/")
     assert rv.status == "200 OK"
-    assert rv.data == b"Hello World"
+    assert rv.data == b'{"status": "ok"}'
 
 
-def test_good_path(client):
-    rv = client.get("/good")
+def test_increment_1(client):
+    rv = client.get("/add/1")
     assert rv.status == "200 OK"
-    assert rv.data == b"Good"
+    assert rv.data == b"2"
+
+
+def test_increment_100(client):
+    rv = client.get("/add/100")
+    assert rv.status == "200 OK"
+    assert rv.data == b"101"
 
 
 def test_not_found_path(client):
-    rv = client.get("/bad")
+    rv = client.get("/add/invalidString")
     assert rv.status == "404 NOT FOUND"

@@ -5,10 +5,10 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return "Hello World"
+    return '{"status": "ok"}'
 
 
-@app.route("/good")
-def good():
-    name = "Good"
-    return name
+@app.route("/add/<int:integer_number>")
+def add(integer_number):
+    integer_number += 1
+    return str(integer_number)

@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "/workspaces/wsgi-server-test/.venv/bin/python3",
+    "python.pythonPath": "/workspaces/internal-api-server-test/.venv/bin/python3",
     "python.testing.pytestArgs": [
         "myservice"
     ],
