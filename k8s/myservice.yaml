@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: myservice-service
+  name: service
 spec:
   type: ClusterIP
   clusterIP: None
@@ -10,19 +10,19 @@ spec:
     - port: 5000
       protocol: TCP
   selector:
-    app: ml
+    app: prediction-app
 
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myservice-deployment
+  name: deployment
   labels:
-    app: ml
+    app: prediction-app
 spec:
   selector:
     matchLabels:
-      app: ml
+      app: prediction-app
   strategy:
     rollingUpdate:
       maxSurge: 2
@@ -31,11 +31,11 @@ spec:
   template:
     metadata:
       labels:
-        app: ml
+        app: prediction-app
     spec:
       containers:
-        - name: ml
-          image: docker.pkg.github.com/mur6/wsgi-server-test/myservice
+        - name: prediction-app
+          image: docker.pkg.github.com/mur6/internal-api-server-test/simpleapi
           env:
             - name: WORKERS
               value: "2"
