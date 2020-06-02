@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: service
 spec:
-  type: ClusterIP
-  clusterIP: None
   ports:
-    - port: 5000
+    - port: 80
+      targetPort: 5000
       protocol: TCP
+  type: NodePort
   selector:
     app: prediction-app

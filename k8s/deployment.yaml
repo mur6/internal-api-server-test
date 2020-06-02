@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: prediction-app
-          image: docker.pkg.github.com/mur6/internal-api-server-test/simpleapi
+          image: mur6/internal-api-server-test
           env:
             - name: WORKERS
               value: "2"
